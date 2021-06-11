@@ -56,3 +56,12 @@ def GET_Best_Value(root_node,depth,isMaximizingPlayer, alpha, beta,parent):
             if beta <= alpha:
                 break
         return bestval
+
+
+def GET_AI_MOVE(root_node,depth,isMaximizingPlayer, alpha, beta):
+    value=GET_Best_Value(root_node,depth,isMaximizingPlayer, alpha, beta,root_node.get_pockets())
+    index=0
+    for i in root_node.get_children():
+        index+=1
+        if i.get_value()==value:
+            return root_node.get_move_index(index)
