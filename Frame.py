@@ -229,3 +229,12 @@ class frame1:
             self.starting.pack(pady=5)
 
         self.Play_Button.pack(pady=10)
+
+    def start_playing(self):
+        self.start.destroy()
+        if self.computer_side == "player1":
+            self.current_player = "player2"
+            self.ai_play["state"] = "normal"
+        else:
+            self.ai_play["state"] = "disabled"
+        self.update_labels()
