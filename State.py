@@ -37,6 +37,8 @@ class state:
         self.newPocketsAndMancalas[index]=0
         usedMancala=0
         discardedMancala=0
+        zerosInplayer1 = 0
+        zerosInplayer2 = 0
 
         if self.turn == 'player1':
             discardedMancala = 13
@@ -77,6 +79,25 @@ class state:
                 self.newPocketsAndMancalas[12 - index]=0
                 self.newPocketsAndMancalas[index]=0
                 self.newPocketsAndMancalas[usedMancala]+=oppositePocket+1
+
+
+        for i in range(0, 6):
+            if self.newPocketsAndMancalas[i] == 0:
+                zerosInplayer1 += 1
+            if self.newPocketsAndMancalas[i + 7] == 0:
+                zerosInplayer2 += 1
+
+        if zerosInplayer1 == 6:
+            for i in range(7, 13):
+
+                self.newPocketsAndMancalas[13] += self.newPocketsAndMancalas[i]
+                self.newPocketsAndMancalas[i] = 0
+            self.nextTurn="finish"
+        elif zerosInplayer2 == 6:
+            for i in range(0, 6):
+                self.newPocketsAndMancalas[6] += self.newPocketsAndMancalas[i]
+                self.newPocketsAndMancalas[i] = 0
+            self.nextTurn = "finish"
 
 
         return self.newPocketsAndMancalas
