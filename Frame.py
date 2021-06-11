@@ -230,11 +230,123 @@ class frame1:
 
         self.Play_Button.pack(pady=10)
 
-    def start_playing(self):
-        self.start.destroy()
-        if self.computer_side == "player1":
-            self.current_player = "player2"
-            self.ai_play["state"] = "normal"
-        else:
-            self.ai_play["state"] = "disabled"
-        self.update_labels()
+
+    def update_labels(self):
+
+
+        if self.current_player=="player1":
+
+            self.b0["state"] = "normal"
+            self.b1["state"] = "normal"
+            self.b2["state"] = "normal"
+            self.b3["state"] = "normal"
+            self.b4["state"] = "normal"
+            self.b5["state"] = "normal"
+            for i in range(6):
+                if self.player[i] == 0:
+                    if i == 0:
+                        self.b0["state"] = "disabled"
+                    if i == 1:
+                        self.b1["state"] = "disabled"
+                    if i == 2:
+                        self.b2["state"] = "disabled"
+                    if i == 3:
+                        self.b3["state"] = "disabled"
+                    if i == 4:
+                        self.b4["state"] = "disabled"
+                    if i == 5:
+                        self.b5["state"] = "disabled"
+
+            if not self.computer:
+                self.b7["state"] = "disabled"
+                self.b8["state"] = "disabled"
+                self.b9["state"] = "disabled"
+                self.b10["state"] = "disabled"
+                self.b11["state"] = "disabled"
+                self.b12["state"] = "disabled"
+        if self.current_player=="player2":
+            if not self.computer:
+                self.b7["state"] = "normal"
+                self.b8["state"] = "normal"
+                self.b9["state"] = "normal"
+                self.b10["state"] = "normal"
+                self.b11["state"] = "normal"
+                self.b12["state"] = "normal"
+                for i in range(13)[7:]:
+                    if self.player[i] == 0:
+                        if i == 7:
+                            self.b7["state"] = "disabled"
+                        if i == 8:
+                            self.b8["state"] = "disabled"
+                        if i == 9:
+                            self.b9["state"] = "disabled"
+                        if i == 10:
+                            self.b10["state"] = "disabled"
+                        if i == 11:
+                            self.b11["state"] = "disabled"
+                        if i == 12:
+                            self.b12["state"] = "disabled"
+
+            self.b0["state"] = "disabled"
+            self.b1["state"] = "disabled"
+            self.b2["state"] = "disabled"
+            self.b3["state"] = "disabled"
+            self.b4["state"] = "disabled"
+            self.b5["state"] = "disabled"
+
+
+
+
+        self.l0 = Label(self.master, text=self.player[0], width=2, height=1, font="Helvetica 14 ",
+                        bg="orange", fg="black")
+        self.l0.place(x=190, y=530)
+        self.l1 = Label(self.master, text=self.player[1], width=2, height=1, font="Helvetica 14 ",
+                        bg="orange", fg="black")
+        self.l1.place(x=310, y=530)
+        self.l2 = Label(self.master, text=self.player[2], width=2, height=1, font="Helvetica 14 ",
+                        bg="orange", fg="black")
+        self.l2.place(x=430, y=530)
+        self.l3 = Label(self.master, text=self.player[3], width=2, height=1, font="Helvetica 14 ",
+                        bg="orange", fg="black")
+        self.l3.place(x=550, y=530)
+        self.l4 = Label(self.master, text=self.player[4], width=2, height=1, font="Helvetica 14 ",
+                        bg="orange", fg="black")
+        self.l4.place(x=670, y=530)
+        self.l5 = Label(self.master, text=self.player[5], width=2, height=1, font="Helvetica 14 ",
+                        bg="orange", fg="black")
+        self.l5.place(x=790, y=530)
+
+        self.l7 = Label(self.master, text=self.player[12], width=2, height=1, font="Helvetica 14 ",
+                        bg="cyan", fg="green")
+        self.l7.place(x=190, y=150)
+        self.l8 = Label(self.master, text=self.player[11], width=2, height=1, font="Helvetica 14 ",
+                        bg="cyan", fg="green")
+        self.l8.place(x=310, y=150)
+        self.l9 = Label(self.master, text=self.player[10], width=2, height=1, font="Helvetica 14 ",
+                        bg="cyan", fg="green")
+        self.l9.place(x=430, y=150)
+        self.l10 = Label(self.master, text=self.player[9], width=2, height=1, font="Helvetica 14 ",
+                         bg="cyan", fg="green")
+        self.l10.place(x=550, y=150)
+        self.l11 = Label(self.master, text=self.player[8], width=2, height=1, font="Helvetica 14 ",
+                         bg="cyan", fg="green")
+        self.l11.place(x=670, y=150)
+        self.l12 = Label(self.master, text=self.player[7], width=2, height=1, font="Helvetica 14 ",
+                         bg="cyan", fg="green")
+        self.l12.place(x=790, y=150)
+
+        self.l6 = Label(self.master, text=self.player[6], width=3, height=1, font="Helvetica 20 ",
+                        bg="orange", fg="black")
+        self.l6.place(x=900, y=330)
+        self.l13 = Label(self.master, text=self.player[13], width=2, height=1, font="Helvetica 20 ",
+                         bg="cyan", fg="green")
+        self.l13.place(x=80, y=330)
+        state1=state(self.player,0,"player1","With Stealing")
+        if state1.newTurn() =="finish":
+            self.b0["state"] = "disabled"
+            self.b1["state"] = "disabled"
+            self.b2["state"] = "disabled"
+            self.b3["state"] = "disabled"
+            self.b4["state"] = "disabled"
+            self.b5["state"] = "disabled"
+
