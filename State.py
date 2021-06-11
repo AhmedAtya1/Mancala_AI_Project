@@ -39,14 +39,17 @@ class state:
         discardedMancala=0
         zerosInplayer1 = 0
         zerosInplayer2 = 0
+        usedRange = []
 
         if self.turn == 'player1':
             discardedMancala = 13
             usedMancala=6
+            usedRange = list(range(0, 6))
             self.nextTurn = 'player2'
         elif self.turn == 'player2':
             discardedMancala = 6
             usedMancala=13
+            usedRange = list(range(7, 13))
             self.nextTurn = 'player1'
 
         if self.mode == "Without Stealing":
@@ -74,11 +77,12 @@ class state:
                 self.nextTurn = 'player1'
             elif index == 13:
                 self.nextTurn = 'player2'
-            elif self.newPocketsAndMancalas[index]==1:
+            elif (self.newPocketsAndMancalas[index]==1)and(index in usedRange):
                 oppositePocket=self.newPocketsAndMancalas[12-index]
-                self.newPocketsAndMancalas[12 - index]=0
-                self.newPocketsAndMancalas[index]=0
-                self.newPocketsAndMancalas[usedMancala]+=oppositePocket+1
+                if oppositePocket != 0:
+                    self.newPocketsAndMancalas[12 - index]=0
+                    self.newPocketsAndMancalas[index]=0
+                    self.newPocketsAndMancalas[usedMancala]+=oppositePocket+1
 
 
         for i in range(0, 6):
