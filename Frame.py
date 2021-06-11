@@ -2,7 +2,7 @@ from tkinter import *
 from tkinter import font as tkFont
 from PIL import ImageTk, Image
 from State import state
-from node import  node
+from Node import  node
 from BestMove import  *
 import time
 
