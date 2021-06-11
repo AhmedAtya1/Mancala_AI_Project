@@ -359,3 +359,31 @@ class frame1:
             self.b4["state"] = "disabled"
             self.b5["state"] = "disabled"
 
+    def compuer_play(self):
+
+
+        diff=self.clicked1.get()
+
+
+
+        computer = node(self.player, "player2", self.mode)
+        if diff=="Easy":
+            computer.set_depth(3)
+        if diff=="Medium":
+            computer.set_depth(6)
+        if diff=="Hard":
+            computer.set_depth(9)
+
+
+        move = GET_AI_MOVE(computer, 1, True, -5000000, 5000000)
+        A = state(self.player, move, "player2", self.mode)
+        self.player = A.nextState()
+        self.ai_play["state"] = "disabled"
+
+        self.current_player = "player1"
+        if A.nextTurn=="player2":
+            self.current_player = "player2"
+            self.ai_play["state"] = "normal"
+
+
+        self.update_labels()
