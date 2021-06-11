@@ -387,3 +387,104 @@ class frame1:
 
 
         self.update_labels()
+
+    def get_mode(self):
+        return self.mode
+    
+    def move0(self):
+        A= state(self.player, 0, self.current_player, self.mode)
+        turn=self.current_player
+        self.player=A.nextState()
+        print(self.player)
+        self.current_player = A.newTurn()
+        if self.current_player=="player2":
+            self.ai_play["state"] = "normal"
+        self.update_labels()
+
+
+    def move1(self):
+        A= state(self.player, 1, self.current_player, self.mode)
+        turn = self.current_player
+        self.player=A.nextState()
+        print(self.player)
+        self.current_player = A.newTurn()
+        if self.current_player=="player2":
+            self.ai_play["state"] = "normal"
+        self.update_labels()
+
+    def move2(self):
+        A= state(self.player, 2, self.current_player, self.mode)
+        turn = self.current_player
+        self.player=A.nextState()
+        print(self.player)
+        self.current_player = A.newTurn()
+        if self.current_player=="player2":
+            self.ai_play["state"] = "normal"
+        self.update_labels()
+
+    def move3(self):
+        A= state(self.player, 3, self.current_player, self.mode)
+        turn = self.current_player
+        self.player=A.nextState()
+        print(self.player)
+        self.current_player = A.newTurn()
+        if self.current_player=="player2":
+            self.ai_play["state"] = "normal"
+        self.update_labels()
+
+    def move4(self):
+        A= state(self.player, 4, self.current_player, self.mode)
+        turn = self.current_player
+        self.player=A.nextState()
+        print(self.player)
+        self.current_player = A.newTurn()
+        if self.current_player=="player2":
+            self.ai_play["state"] = "normal"
+        self.update_labels()
+
+    def move5(self):
+        A= state(self.player, 5, self.current_player, self.mode)
+        turn = self.current_player
+        self.player=A.nextState()
+        print(self.player)
+        self.current_player = A.newTurn()
+        if self.current_player=="player2":
+            self.ai_play["state"] = "normal"
+        self.update_labels()
+
+    def move7(self):
+        A= state(self.player, 7, self.current_player, self.mode)
+        self.player=A.nextState()
+        print(self.player)
+        self.current_player = A.newTurn()
+        self.update_labels()
+    def move8(self):
+        A= state(self.player, 8, self.current_player, self.mode)
+        self.player=A.nextState()
+        print(self.player)
+        self.current_player = A.newTurn()
+        self.update_labels()
+    def move9(self):
+        A= state(self.player, 9, self.current_player, self.mode)
+        self.player=A.nextState()
+        print(self.player)
+        self.current_player = A.newTurn()
+        self.update_labels()
+    def move10(self):
+        A= state(self.player, 10, self.current_player, self.mode)
+        self.player=A.nextState()
+        print(self.player)
+        self.current_player = A.newTurn()
+        self.update_labels()
+    def move11(self):
+        A= state(self.player, 11, self.current_player, self.mode)
+        self.player=A.nextState()
+        print(self.player)
+        self.current_player = A.newTurn()
+        self.update_labels()
+    def move12(self):
+        A= state(self.player, 12, self.current_player, self.mode)
+        self.player=A.nextState()
+        print(self.player)
+        self.current_player = A.newTurn()
+        self.update_labels()
